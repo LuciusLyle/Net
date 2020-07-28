@@ -1,1 +1,2 @@
-# Net
+# implementation 'com.github.LuciusLyle:Net:0.0.2'
+https://jitpack.io/private#subscribe
