@@ -27,6 +27,7 @@ import org.json.JSONObject;
 
 import java.util.List;
 
+import androidx.cardview.widget.CardView;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
