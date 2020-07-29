@@ -1,7 +1,7 @@
-package com.luciuslyle.net.http;
+package com.luciuslyle.net.demo;
 
 
-import com.luciuslyle.net.http.call.RequestCallback;
+import com.luciuslyle.net.call.RequestCallback;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;

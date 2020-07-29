@@ -17,7 +17,7 @@ package com.luciuslyle.net.imageloader;
 
 import android.content.Context;
 
-import androidx.annotation.Nullable;
+
 
 
 public interface BaseImageLoaderStrategy<T extends ImageConfig> {
@@ -28,7 +28,7 @@ public interface BaseImageLoaderStrategy<T extends ImageConfig> {
      * @param ctx    {@link Context}
      * @param config 图片加载配置信息
      */
-    void loadImage(@Nullable Context ctx, @Nullable T config);
+    void loadImage(Context ctx,  T config);
 
     /**
      * 停止加载
@@ -36,5 +36,5 @@ public interface BaseImageLoaderStrategy<T extends ImageConfig> {
      * @param ctx    {@link Context}
      * @param config 图片加载配置信息
      */
-    void clear(@Nullable Context ctx, @Nullable T config);
+    void clear( Context ctx,  T config);
 }

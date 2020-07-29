@@ -1,16 +1,11 @@
-package com.luciuslyle.net.http;
+package com.luciuslyle.net;
 
 
-import com.luciuslyle.net.http.converter.ExtConverterFactory;
-import com.luciuslyle.net.http.inter.RequestCallFilter;
+import com.luciuslyle.net.inter.RequestCallFilter;
 
-import java.lang.reflect.Field;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.CipherSuite;
 import okhttp3.HttpUrl;
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;

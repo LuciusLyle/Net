@@ -1,8 +1,6 @@
-package com.luciuslyle.net.http.log;
+package com.luciuslyle.net.log;
 
 import android.util.Log;
-
-import com.luciuslyle.net.http.log.HttpLoggingInterceptor;
 
 /**
  * @author

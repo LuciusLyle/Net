@@ -1,4 +1,4 @@
-package com.luciuslyle.net.http.inter;
+package com.luciuslyle.net.inter;
 
 /**
  * @author

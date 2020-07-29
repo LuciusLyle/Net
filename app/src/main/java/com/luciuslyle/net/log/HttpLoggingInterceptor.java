@@ -1,4 +1,4 @@
-package com.luciuslyle.net.http.log;
+package com.luciuslyle.net.log;
 import java.io.EOFException;
 import java.io.IOException;
 import java.nio.charset.Charset;

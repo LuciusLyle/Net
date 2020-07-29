@@ -1,4 +1,4 @@
-package com.luciuslyle.net.http.converter;
+package com.luciuslyle.net.converter;
 
 import com.google.gson.Gson;
 import com.google.gson.TypeAdapter;

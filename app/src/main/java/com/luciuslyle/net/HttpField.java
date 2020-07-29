@@ -1,4 +1,4 @@
-package com.luciuslyle.net.http;
+package com.luciuslyle.net;
 
 import java.lang.reflect.Field;
 

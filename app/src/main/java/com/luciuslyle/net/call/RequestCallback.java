@@ -1,11 +1,11 @@
-package com.luciuslyle.net.http.call;
+package com.luciuslyle.net.call;
 
 import android.app.Dialog;
 import android.net.ParseException;
 
 import com.google.gson.JsonSyntaxException;
-import com.luciuslyle.net.http.BaseHttp;
-import com.luciuslyle.net.http.inter.RequestLoading;
+import com.luciuslyle.net.BaseHttp;
+import com.luciuslyle.net.inter.RequestLoading;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -24,11 +24,11 @@ import okio.Buffer;
 import okio.BufferedSource;
 import retrofit2.HttpException;
 
-public abstract class RequestCallback<T> implements Observer<T> {
+public  class RequestCallback<T> implements Observer<T> {
 
     private RequestLoading mLoading;
     private Dialog mDialog;
-
+    
     @Override
     public void onComplete() {
         onAfter();
@@ -40,12 +40,14 @@ public abstract class RequestCallback<T> implements Observer<T> {
         }
     }
 
-    public void setLodingView(RequestLoading loding) {
+    public RequestCallback setLodingView(RequestLoading loding) {
         mLoading = loding;
+        return this;
     }
 
-    public void setDialog(Dialog dialog) {
+    public RequestCallback setDialog(Dialog dialog) {
         mDialog = dialog;
+        return this;
     }
 
     @Override

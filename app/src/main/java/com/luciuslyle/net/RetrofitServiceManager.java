@@ -1,7 +1,5 @@
-package com.luciuslyle.net.http;
+package com.luciuslyle.net;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
 import java.util.WeakHashMap;
 
@@ -29,7 +27,7 @@ public class RetrofitServiceManager {
     }
 
 
-    public synchronized <T> T obtainRetrofitService(@NonNull Class<T> serviceClass) {
+    public synchronized <T> T obtainRetrofitService( Class<T> serviceClass) {
         if (mRetrofitServiceCache == null) {
             mRetrofitServiceCache = new WeakHashMap<>();
         }
@@ -49,7 +47,7 @@ public class RetrofitServiceManager {
 
     public interface ObtainServiceDelegate {
 
-        @Nullable
+        
         <T> T createRetrofitService(Retrofit retrofit, Class<T> serviceClass);
     }
 }

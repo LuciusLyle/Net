@@ -1,23 +1,17 @@
-package com.luciuslyle.net;
+package com.luciuslyle.net.demo;
 
+import android.app.Activity;
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-import com.luciuslyle.net.demo.UserEntity;
-import com.luciuslyle.net.demo.UserService;
-import com.luciuslyle.net.http.BaseHttp;
-import com.luciuslyle.net.demo.HttpResult;
-import com.luciuslyle.net.http.HttpConfig;
-import com.luciuslyle.net.http.log.BaseHttpLogging;
-import com.luciuslyle.net.http.log.HttpLoggingInterceptor;
-import com.luciuslyle.net.http.RetrofitHelper;
-import com.luciuslyle.net.http.RetrofitServiceManager;
-import com.luciuslyle.net.http.call.RequestCallback;
-import com.luciuslyle.net.http.inter.RequestCallFilter;
+import com.luciuslyle.net.R;
+import com.luciuslyle.net.BaseHttp;
+import com.luciuslyle.net.HttpConfig;
+import com.luciuslyle.net.log.BaseHttpLogging;
+import com.luciuslyle.net.log.HttpLoggingInterceptor;
+import com.luciuslyle.net.RetrofitServiceManager;
+import com.luciuslyle.net.call.RequestCallback;
+import com.luciuslyle.net.inter.RequestCallFilter;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
 import android.util.Log;
 import android.view.View;
@@ -27,36 +21,31 @@ import org.json.JSONObject;
 
 import java.util.List;
 
-import androidx.cardview.widget.CardView;
 import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.annotations.NonNull;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
 import retrofit2.Retrofit;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
         init();
-        findViewById(R.id.fab).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.request).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-                //test();
+                test();
                 //组合/ 合并操作符 请求 
                 //test2();
             }
         });
- 
-
     }
 
     private void test2() {
@@ -101,10 +90,17 @@ public class MainActivity extends AppCompatActivity {
     private void test() {
         RetrofitHelper.qurest(RetrofitServiceManager.getInstance().obtainRetrofitService(UserService.class).executeGetEntity("home/productCateList"),
                 new RequestCallback<HttpResult<List<UserEntity>>>() {
+
                     @Override
                     public void onFailure(Throwable e, String msg) {
                         Log.e("xxx","过滤解析错误分类："+msg);
                     }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        super.onError(e);
+                    }
+
                     @Override
                     public void onResponse(HttpResult<List<UserEntity>> response) {
                         super.onResponse(response);
@@ -126,7 +122,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void init() {
-        HttpConfig config = new HttpConfig().setBaseUrl("https://interface.app.zuizhezhi.com/").setRetrofitConfiguration(new HttpConfig.RetrofitConfiguration() {
+        HttpConfig config = new HttpConfig()
+                .setBaseUrl("https://interface.app.zuizhezhi.com/").setRetrofitConfiguration(new HttpConfig.RetrofitConfiguration() {
             @Override
             public void configRetrofit(@NonNull Retrofit.Builder builder) {
             }
@@ -159,6 +156,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         BaseHttp.getInstance().init(config);
+  
+        
         /**
          * 请求返回过滤
          */

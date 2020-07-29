@@ -1,18 +1,12 @@
-package com.luciuslyle.net.http;
+package com.luciuslyle.net;
 
-import android.content.Context;
 
-import androidx.annotation.NonNull;
-
-import java.io.File;
-import java.util.List;
 import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.internal.Util;
 import retrofit2.Retrofit;
@@ -86,14 +80,14 @@ public class HttpConfig {
     * {@link Retrofit} 自定义配置接口
     */
     public interface RetrofitConfiguration {
-        void configRetrofit( @NonNull Retrofit.Builder builder);
+        void configRetrofit( Retrofit.Builder builder);
     }
 
      /**
      * {@link OkHttpClient} 自定义配置接口
      */
      public interface OkhttpConfiguration {
-        void configOkhttp(@NonNull OkHttpClient.Builder builder);
+        void configOkhttp( OkHttpClient.Builder builder);
      }
 
      
