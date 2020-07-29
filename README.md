@@ -5,22 +5,22 @@ https://jitpack.io/private#subscribe
         HttpConfig config = new HttpConfig()
                 .setBaseUrl("")// base url
                 .setRetrofitConfiguration(new Interceptor() {
-                //      @Override
-                //      public Response intercept(Chain chain) throws IOException {
-                //          Request original = chain.request();
-                //          Request.Builder requestBuilder = original.newBuilder()
-                //              .addHeader("user-agent", "android")
-                //              .addHeader("content-type", "application/json;charset:utf-8")
-                //              .addHeader("language", BaseSP.getInstance().getString("language"))//语言类型
-                //              .addHeader("token", BaseSP.getInstance().getString("token"))
-                //              .header("device", "device")//设备信息
-                //              .header("version", "version")//app版本
-                //              .header("apiVersion", "apiVersion")//api版本
-                //              .header("channelId", "channelId")//渠道
-                //              Request request = requestBuilder.build();
-                //              return chain.proceed(request);
-                //      }
-                //})
+                      @Override
+                      public Response intercept(Chain chain) throws IOException {
+                          Request original = chain.request();
+                          Request.Builder requestBuilder = original.newBuilder()
+                              .addHeader("user-agent", "android")
+                              .addHeader("content-type", "application/json;charset:utf-8")
+                              .addHeader("language", BaseSP.getInstance().getString("language"))//语言类型
+                              .addHeader("token", BaseSP.getInstance().getString("token"))
+                              .header("device", "device")//设备信息
+                              .header("version", "version")//app版本
+                              .header("apiVersion", "apiVersion")//api版本
+                              .header("channelId", "channelId")//渠道
+                              Request request = requestBuilder.build();
+                              return chain.proceed(request);
+                      }
+                })
                  .setOkhttpConfiguration()//Customize Okhttp Config
         //初始化        
         BaseHttp.getInstance().init(config);
@@ -41,7 +41,7 @@ https://jitpack.io/private#subscribe
             }
         }); 
         
-2:  a:  rx+Retrofit RetrofitServiceManager(RetrofitService 管理)
+2:  a:  rx+Retrofit RetrofitServiceManager(RetrofitService 管理)/n
         自定义ApiService,多模块多 ApiService
     b:  获取Observable
         Observable observable = RetrofitServiceManager.getInstance().obtainRetrofitService(ApiService.class);//获取 RetrofitService
