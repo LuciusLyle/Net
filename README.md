@@ -2,6 +2,7 @@
 https://jitpack.io/private#subscribe
 
 1:  初始化配置：HttpConfig
+
         HttpConfig config = new HttpConfig()
                 .setBaseUrl("")// base url
                 .setRetrofitConfiguration(new Interceptor() {
@@ -41,7 +42,8 @@ https://jitpack.io/private#subscribe
             }
         }); 
         
-2:  a:  rx+Retrofit RetrofitServiceManager(RetrofitService 管理)/n
+2:  a:  rx+Retrofit RetrofitServiceManager(RetrofitService 管理)
+
         自定义ApiService,多模块多 ApiService
     b:  获取Observable
         Observable observable = RetrofitServiceManager.getInstance().obtainRetrofitService(ApiService.class);//获取 RetrofitService
@@ -50,6 +52,7 @@ https://jitpack.io/private#subscribe
         可以自定义HttpConfig 配置转换方式
 
 3:  请求返回过滤(支持 ResponseBody  和 泛型 类)
+
         BaseHttp.getInstance().setRequestCallFilter(new RequestCallFilter() {
             @Override
             public void onNext(Object o) {
@@ -63,6 +66,7 @@ https://jitpack.io/private#subscribe
 
 
 4: 使用示例
+
         RetrofitHelper.qurest(Observable observable, RequestCallback callback);//rx线程管理,observable与自定义Observer类
         RetrofitHelper.qurest(RetrofitServiceManager.getInstance().obtainRetrofitService(UserService.class).executeGetEntity("path"),
                 new RequestCallback<HttpResult<List<UserEntity>>>() {
