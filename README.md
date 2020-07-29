@@ -1,7 +1,8 @@
-#简单的Retrofit 封装
+# 简单的Retrofit 封装
 
 
 implementation 'com.github.LuciusLyle:Net:0.0.5-alpha'
+
 https://jitpack.io/private#subscribe(地址生成)
 
 1:  初始化配置：HttpConfig
