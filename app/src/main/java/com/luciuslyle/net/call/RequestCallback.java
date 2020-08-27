@@ -24,7 +24,7 @@ import okio.Buffer;
 import okio.BufferedSource;
 import retrofit2.HttpException;
 
-public  class RequestCallback<T> implements Observer<T> {
+public class RequestCallback<T> implements Observer<T> {
 
     private RequestLoading mLoading;
     private Dialog mDialog;
@@ -72,14 +72,7 @@ public  class RequestCallback<T> implements Observer<T> {
                 }
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
-                JSONObject object=new JSONObject();
-                try {
-                    object.put("code",507);
-                    object.put("message","数据解析错误!");
-                } catch (JSONException ex) {
-                    ex.printStackTrace();
-                }
-                onResponse(object);
+                onResponse(new JSONObject());
             }
         }else {
             onResponse(result);
