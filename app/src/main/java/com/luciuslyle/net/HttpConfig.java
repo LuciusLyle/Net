@@ -16,9 +16,9 @@ public class HttpConfig {
     private RetrofitConfiguration mRetrofitConfiguration;
     private OkhttpConfiguration mOkhttpConfiguration;
     private String baseUrl;
-    private int connectTimeout=3000;//请求超时时长
-    private int readTimeout=3000;//读取超时
-    private int writeTimeout=3000; //写入超时
+    private int connectTimeout=6000;//请求超时时长
+    private int readTimeout=10000;//读取超时
+    private int writeTimeout=10000; //写入超时
 
 
     public RetrofitConfiguration getRetrofitConfiguration() {
