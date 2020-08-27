@@ -1,7 +1,7 @@
 # 简单的Retrofit 封装
 
 
-implementation 'com.github.LuciusLyle:Net:0.0.5-alpha'
+implementation 'com.github.LuciusLyle:Net:0.0.6-alpha'
 
 https://jitpack.io/private#subscribe(地址生成)
 
